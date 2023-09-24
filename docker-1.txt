@@ -1,0 +1,71 @@
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+3f4d90098f5b: Pull complete 
+Digest: sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker run --name pinger -it busybox ping -c 7 netology.ru
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=53 time=9.205 ms
+64 bytes from 188.114.99.224: seq=1 ttl=53 time=9.013 ms
+64 bytes from 188.114.99.224: seq=2 ttl=53 time=9.117 ms
+64 bytes from 188.114.99.224: seq=3 ttl=53 time=9.035 ms
+64 bytes from 188.114.99.224: seq=4 ttl=53 time=9.464 ms
+64 bytes from 188.114.99.224: seq=5 ttl=53 time=9.106 ms
+64 bytes from 188.114.99.224: seq=6 ttl=53 time=9.109 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 9.013/9.149/9.464 ms
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker ps -a
+CONTAINER ID   IMAGE                          COMMAND                  CREATED          STATUS                      PORTS     NAMES
+2d1aa394a0cd   busybox                        "ping -c 7 netology.…"   40 seconds ago   Exited (0) 33 seconds ago             pinger
+914bb8175d74   taker-taker-web                "docker-php-entrypoi…"   4 days ago       Exited (0) 2 minutes ago              taker-web
+e503d741237b   svc-aggregator-app             "docker-php-entrypoi…"   4 days ago       Exited (137) 4 days ago               svc-aggregator-app
+6e645eb33dbe   svc-aggregator-web             "/docker-entrypoint.…"   4 days ago       Exited (0) 4 days ago                 svc-aggregator-web
+109b56346fa8   mysql:8.0.25                   "docker-entrypoint.s…"   4 days ago       Exited (0) 4 days ago                 svc-aggregator-db-test
+d1a558b16c6c   mysql:8.0.25                   "docker-entrypoint.s…"   4 days ago       Exited (0) 4 days ago                 svc-aggregator-db
+bd0aa817922f   redis:alpine                   "docker-entrypoint.s…"   4 days ago       Exited (0) 4 days ago                 svc-aggregator-redis
+91f485e85ef7   taker-svc-aggregator           "docker-php-entrypoi…"   5 days ago       Exited (0) 2 minutes ago              svc-aggregator
+e84d41e0593d   taker-svc-central              "docker-php-entrypoi…"   10 days ago      Exited (0) 2 minutes ago              svc-central
+db4e299d167c   svc-central-app                "docker-php-entrypoi…"   2 weeks ago      Exited (137) 2 weeks ago              Laravel-app
+dc96cec28e21   mysql:8.0.25                   "docker-entrypoint.s…"   2 weeks ago      Exited (0) 2 weeks ago                Laravel-db
+8429568995f4   mysql:8.0.25                   "docker-entrypoint.s…"   2 weeks ago      Exited (0) 2 weeks ago                Laravel-db-test
+24d5ca823ce8   redis:alpine                   "docker-entrypoint.s…"   2 weeks ago      Exited (0) 2 weeks ago                Laravel-redis
+f0d270174c1b   svc-central-web                "/docker-entrypoint.…"   2 weeks ago      Exited (0) 2 weeks ago                Laravel-web
+0c0c1d4016b4   taker-pos-systems              "docker-php-entrypoi…"   2 weeks ago      Exited (0) 2 minutes ago              pos-systems
+96192ea60ff5   nginx                          "/docker-entrypoint.…"   2 weeks ago      Exited (0) 2 minutes ago              nginx
+bce8745151e6   taker-taker-planning-service   "docker-php-entrypoi…"   5 weeks ago      Exited (0) 2 minutes ago              svc-proxy
+a13e94786637   phpmyadmin                     "/docker-entrypoint.…"   5 weeks ago      Exited (0) 2 minutes ago              taker-phpmyadmin-prod-1
+216e3b0f7cf2   phpmyadmin                     "/docker-entrypoint.…"   5 weeks ago      Exited (0) 2 minutes ago              taker-phpmyadmin-core-1
+525109fada3a   phpmyadmin                     "/docker-entrypoint.…"   5 weeks ago      Exited (0) 2 minutes ago              taker-phpmyadmin1-1
+a4682e297f5e   phpmyadmin                     "/docker-entrypoint.…"   5 weeks ago      Exited (0) 2 minutes ago              taker-phpmyadmin-la1-1
+300692524b72   phpmyadmin                     "/docker-entrypoint.…"   5 weeks ago      Exited (0) 2 minutes ago              taker-phpmyadmin-1
+39edbb8b9d96   mysql:latest                   "docker-entrypoint.s…"   5 weeks ago      Exited (0) 2 minutes ago              db2
+d18e73a5ad95   mysql:5.7                      "docker-entrypoint.s…"   5 weeks ago      Exited (0) 2 minutes ago              db
+c2ed15fb9cc5   redis:alpine                   "docker-entrypoint.s…"   5 weeks ago      Exited (0) 2 minutes ago              redis
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker logs pinger
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=53 time=9.205 ms
+64 bytes from 188.114.99.224: seq=1 ttl=53 time=9.013 ms
+64 bytes from 188.114.99.224: seq=2 ttl=53 time=9.117 ms
+64 bytes from 188.114.99.224: seq=3 ttl=53 time=9.035 ms
+64 bytes from 188.114.99.224: seq=4 ttl=53 time=9.464 ms
+64 bytes from 188.114.99.224: seq=5 ttl=53 time=9.106 ms
+64 bytes from 188.114.99.224: seq=6 ttl=53 time=9.109 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 9.013/9.149/9.464 ms
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker logs pinger | grep PING | wc -l
+1
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker logs pinger | grep transmitted
+7 packets transmitted, 7 packets received, 0% packet loss
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker rm pinger
+pinger
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
+Deleted: sha256:a416a98b71e224a31ee99cff8e16063554498227d2b696152a9c3e0aa65e5824
+Deleted: sha256:3d24ee258efc3bfe4066a1a9fb83febf6dc0b1548dfe896161533668281c9f4f

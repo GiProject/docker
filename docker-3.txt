@@ -1,0 +1,30 @@
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker pull node:20.7
+20.7: Pulling from library/node
+167b8a53ca45: Already exists 
+b47a222d28fa: Already exists 
+debce5f9f3a9: Already exists 
+1d7ca7cd2e06: Already exists 
+94c7791033e8: Already exists 
+72ab0dfaf5cb: Already exists 
+3316ed2852d4: Already exists 
+ef5505406bea: Already exists 
+Digest: sha256:191b360003a7458df0f14bbc0aa1d298a706e32786e1830191036971eb1547a2
+Status: Downloaded newer image for node:20.7
+docker.io/library/node:20.7
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ docker run --name first_node -it -v $(pwd)/data:/var/first/data -d node:20.7
+6c30727abd39be92b2403421d0e8573f966adf24275719289a3c99ee637c4e2a
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ docker run --name second_node -it -v $(pwd)/data:/var/second/data -d node:20.7
+02ca60048add7061879ed319450de4949581ea5ad11c736c44614c8c7f0aa28f
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ docker exec first_node touch /var/first/data/example.txt
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ touch ./data/create_from_host_file.txt
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ docker exec second_node ls /var/second/data
+create_from_host_file.txt
+example.txt
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ docker stop $(docker ps -q)
+02ca60048add
+6c30727abd39
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/docker$ docker rmi -f node:20.7
+Untagged: node:20.7
+Untagged: node@sha256:191b360003a7458df0f14bbc0aa1d298a706e32786e1830191036971eb1547a2
+Deleted: sha256:386e0be86bde5eff9f85ea9eda02727dd4641664d746688b4049f79ef0cdb1c9
+

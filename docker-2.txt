@@ -1,0 +1,31 @@
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker pull node:20.7
+20.7: Pulling from library/node
+167b8a53ca45: Pull complete 
+b47a222d28fa: Pull complete 
+debce5f9f3a9: Pull complete 
+1d7ca7cd2e06: Pull complete 
+94c7791033e8: Pull complete 
+72ab0dfaf5cb: Pull complete 
+3316ed2852d4: Pull complete 
+ef5505406bea: Pull complete 
+Digest: sha256:191b360003a7458df0f14bbc0aa1d298a706e32786e1830191036971eb1547a2
+Status: Downloaded newer image for node:20.7
+docker.io/library/node:20.7
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker run --name mynode -it -e NAME=Evgeniy -e SURNAME=Kulinichev node:20.7
+Welcome to Node.js v20.7.0.
+Type ".help" for more information.
+> console.log(`Привет, ${process.env.NAME} ${process.env.SURNAME}!`);
+Привет, Evgeniy Kulinichev!
+undefined
+> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+> exit
+Uncaught ReferenceError: exit is not defined
+> .exit
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker stop mynode
+mynode
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ docker rmi -f node:20.7
+Untagged: node:20.7
+Untagged: node@sha256:191b360003a7458df0f14bbc0aa1d298a706e32786e1830191036971eb1547a2
+Deleted: sha256:386e0be86bde5eff9f85ea9eda02727dd4641664d746688b4049f79ef0cdb1c9
+gekin@gekin-A520M-DS3H:/media/gekin/C83AE97E3AE96A40/Users/gekin/Desktop/netology/nodejs/node-library$ 
